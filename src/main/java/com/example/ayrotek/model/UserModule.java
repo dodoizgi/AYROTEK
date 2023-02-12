@@ -10,16 +10,27 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 @NoArgsConstructor
 @EnableAutoConfiguration
 @Entity
-@Table(name = "Car")
+@Table(name = "userdb")
 @ToString
-public class Car {
+public class UserModule {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private int id;
 
-    private int userId;
+    @Column(name = "mail")
+    private String mail;
+
+    @Column(name = "password")
+    private String password;
+
+    @Column(name = "name")
     private String name;
-    private String model;
-    private String year;
+
+    @Column(name = "lastname")
+    private String lastname;
+
+    @Column(name = "phone")
+    private String phone;
 }

@@ -28,16 +28,18 @@ public class CarController {
     public void registerNewCar(@RequestBody Car car) {
         carService.addNewCar(car);}
 
-    @DeleteMapping(path = {"{carID}"})
-    public void deleteCar(@PathVariable("carID") int carID) {
+    @DeleteMapping(path = {"{userID}"})
+    public void deleteCar(@PathVariable("userID") int userID,
+                          @RequestParam(required = false) int carID) {
         carService.deleteCar(carID);
     }
 
-    @PutMapping(path = "{carID}")
+    @PutMapping(path = "{userID}")
     public void updateCar(
-            @PathVariable("carID") int carID,
+            @PathVariable("userID") int userID,
+            @RequestParam(required = false) int carID,
             @RequestParam(required = false) String carName,
             @RequestParam(required = false) String carYear) {
-        carService.updateCar(carID, carName, carYear);
+        carService.updateCar(userID, carID, carName, carYear);
     }
 }
